@@ -1,0 +1,102 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5.x                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;//ascii;
+    class       dictionary;
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+
+    p
+    {
+	    solver           GAMG;
+	    smoother   GaussSeidel;
+	    tolerance        1e-6;
+	    relTol           0.05;
+
+	    nPreSweeps       0;
+	    nPostSweeps      2;
+	    cacheAgglomeration on;
+	    agglomerator     faceAreaPair;
+	    nCellsInCoarsestLevel 2600; //1000;
+	    mergeLevels      1;
+	    minIter          3;
+
+    }
+
+    pFinal
+    {
+        $p;
+        relTol          0;
+    }
+
+    U
+    {
+        solver          PBiCGStab;
+        preconditioner  DILU;
+        tolerance       1e-8;
+        relTol          0;
+    }
+    Phi
+    {
+//	    $p;
+        solver          GAMG;
+        smoother        GaussSeidel;
+
+        tolerance       1e-06;
+        relTol          0.01;
+    }
+
+}
+
+SIMPLE
+{
+    nNonOrthogonalCorrectors 3;
+  //  pRefCell        0;
+ //   pRefValue       0;
+
+    //consistent yes;
+
+    residualControl
+    {
+        p               0.001;
+        U               0.001;
+    }
+}
+
+relaxationFactors
+{
+    fields
+    {
+        p               0.3; //0.3 0.8
+    }
+    equations
+    {
+        U               0.7; //0.7 0.6
+    }
+
+    //Relaxation factor tuned for simplec
+}
+
+
+cache
+{
+	grad(U);
+}
+
+potentialFlow
+{
+		nNonOrthogonalCorrectors 5;
+}
+
+// ************************************************************************* //

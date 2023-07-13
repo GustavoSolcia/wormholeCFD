@@ -1,0 +1,35 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2012                                  |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;//ascii;
+    class       dictionary;
+    location    "system";
+    object      meshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+surfaceFile "stlRecon/wormhole_cat.fms";
+
+
+maxCellSize 1e-2; 
+boundaryCellSize 1e-3; 
+boundaryCellSizeRefinementThickness 1e-3; 
+
+surfaceMeshRefinement
+{
+        wall
+        {
+                surfaceFile "stlRecon/wall_withFaces.stl";
+                additionalRefinementLevels 6;
+        }
+
+}
+
+

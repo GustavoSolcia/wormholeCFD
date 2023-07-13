@@ -1,0 +1,5 @@
+coarse mesh:
+maxCellSize 1e-2; 0.5e-2; 0.34e-2
+boundaryCellSize 1e-3; 
+boundaryCellSizeRefinementThickness 1e-3;
+additionalRefinementLevels 6;
