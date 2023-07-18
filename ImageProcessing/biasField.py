@@ -59,10 +59,10 @@ def writeImage(dataPath, data):
 
 if __name__=='__main__':
 
-    path = os.path.abspath("")
-    inputName = '/.nii.gz'
-    outputName = '/.nii.gz' #The forward slash is necessary to path+*Name work!
-    biasName = '/.nii.gz'
+    path = os.path.abspath("/wormholeCFD/ImageProcessing")
+    inputName = '/testSample/testSample.nii.gz'
+    outputName = '/testSample/testSample_unbiased.nii.gz' #The forward slash is necessary to path+*Name work!
+    biasName = '/testSample/testSample_biasField.nii.gz'
     
     image = sitk.ReadImage(path+inputName)
     
