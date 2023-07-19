@@ -47,7 +47,7 @@ def fill_image(image, x_center, y_center):
                 if (x >= x_center-radius and x <= x_center+radius) and (y >= y_center-radius and y <= y_center+radius) and (z >= z_start and z <= z_end):
                     image[x,y,z] = 1
                 if (x-x_center)**2 + (y-y_center)**2 <= radius**2 and (z >= z_start and z <= z_end):
-                    image[x,y,z] = 2
+                    image[x,y,z] = 5
 
 
     return image

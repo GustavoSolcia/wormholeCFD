@@ -81,9 +81,9 @@ def writeImage(dataPath, data):
 
 if __name__ == '__main__':
 
-    path = os.path.abspath('')
-    inputName = '/'
-    outputName = '/'
+    path = os.path.abspath('/wormholeCFD/ImageProcessing')
+    inputName = '/testSample/testSample_unbiased.nii.gz'
+    outputName = '/testSample/testSample_denoised.nii.gz'
     image = sitk.ReadImage(path+inputName)
 
     imageData = sitk.GetArrayViewFromImage(image)

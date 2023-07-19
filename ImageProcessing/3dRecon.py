@@ -168,14 +168,14 @@ def writeSTL(path, name, poly):
 
 if __name__=='__main__':
     
-    sample = ''
-    inputPath = os.path.abspath(''+sample+'')
-    outputPath = os.path.abspath(''+sample+'/')
-    inputName = '/Atropos_'+sample+'.nii.gz'
+    sample = 'testSample'
+    inputPath = os.path.abspath('/wormholeCFD/ImageProcessing/'+sample)
+    outputPath = os.path.abspath('/wormholeCFD/ImageProcessing/'+sample)
+    inputName = '/'+sample+'_segmentation.nii.gz'
     cubesOutputName = '/cubes_'+sample+'.stl'
     smoothOutputName = '/smooth_'+sample+'.stl'
 
-    threshold = 2.5
+    threshold = 1.5
     transformCoord=True
 
     vtkImage, QFormMatrix = readImage(inputPath, inputName)
