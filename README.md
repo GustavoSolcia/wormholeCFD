@@ -4,6 +4,6 @@ Supporting code from paper "Computational fluid dynamics in carbonate rock wormh
 
 ## How to use
 
-The image processing codes should be used substituting the respective image paths in the files. There is a testSample for testing the image processing steps and a testCase for testing the OpenFOAM case and custom parabolic boundary condition. 
+The image processing codes should be used substituting the respective image paths in the files. There is a testSample for testing the image processing steps of the proposed pipeline. 
 
 If you have any question, please contact: gustavo.solcia@usp.br
