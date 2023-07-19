@@ -1,0 +1,1 @@
+./Atropos -d 3 -a testSample/testSample_denoised.nii.gz -x testSample/testSample_mask.nii.gz -i kmeans[2] -p Socrates[1] -m [0.4, 1x1x1] -o testSample/testSample_segmentation.nii.gz -v 1
